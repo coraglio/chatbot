@@ -5,6 +5,9 @@ import sklearn
 import os
 dir = os.path.dirname(__file__)
 
+import warnings
+warnings.filterwarnings("ignore")
+
 def clasificador_intenciones(oracion_input):
     """
         Cargamos el archivo donde está guardado el cerebro_intenciones 
@@ -74,4 +77,10 @@ def clasificador_carreras(oracion_input):
 
 
 # intencion, proba=clasificador_intenciones("Quiero saber cuánto cuesta la carrera de IA")
+# print(intencion, proba)
+
+# intencion, proba=clasificador_subintenciones("Quiero saber cuánto cuesta la carrera de IA")
+# print(intencion, proba)
+
+# intencion, proba=clasificador_carreras("Quiero saber cuánto cuesta la carrera de IA")
 # print(intencion, proba)

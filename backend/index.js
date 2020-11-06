@@ -40,10 +40,10 @@ app.use('/api/mensaje', router.post('/post', async (req, res, next) => {
         let carrera = await pythonScript.carrera({ oracion: req.body.mensaje })
         // console.log(intencion)
 
-        let respuesta = RespuestaModel.findOne({
-            intencion: intencion,
-            subintencion: subintencion,
-            carrera: carrera
+        let respuesta = await RespuestaModel.findOne({
+            intencion: intencion.intencion,
+            subintencion: subintencion.subintencion,
+            carrera: carrera.carrera
         })
 
         res.status(200).json({intencion, subintencion, carrera, respuesta});

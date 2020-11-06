@@ -10,7 +10,7 @@ class pythonScripts {
             let script = spawn(pythonScripts.python, argsv);
 
             script.stdout.on('data', (data) => {
-                // console.log(data.toString())
+                console.log(data.toString())
                 try{
                     let res = JSON.parse(data);
                     resolve(res);
