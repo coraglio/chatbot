@@ -1,6 +1,8 @@
 import json
 import sys
 from clasificadores import *
+from spell2 import correction
+import nltk
 
 # silenciar mensajes de advertencia
 import warnings
@@ -20,6 +22,19 @@ def carrera(params):
     intencion, probabilidad = clasificador_carreras(params['oracion'])
     return {'carrera': intencion, 'probabilidad': probabilidad}
 
+
+def w5(params):
+    return {'w5': 'todas', 'probabilidad': 1}
+
+def spell(params):
+    oracion = params['oracion'].lower()
+    palabras = nltk.word_tokenize(text=oracion, language="spanish")
+    oracion_corregida = ''
+
+    for p in palabras:
+        oracion_corregida += correction(p) + ' '
+
+    return oracion_corregida
 
 def main(argv):
     res = ""

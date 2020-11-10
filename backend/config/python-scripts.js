@@ -10,7 +10,7 @@ class pythonScripts {
             let script = spawn(pythonScripts.python, argsv);
 
             script.stdout.on('data', (data) => {
-                console.log(data.toString())
+                // console.log(data.toString())
                 try{
                     let res = JSON.parse(data);
                     resolve(res);
@@ -49,6 +49,18 @@ class pythonScripts {
 
     static carrera = async (params) => {
         let res = await pythonScripts.execute('carrera', params);
+
+        return res;
+    }
+
+    static w5 = async (params) => {
+        let res = await pythonScripts.execute('w5', params);
+
+        return res;
+    }
+
+    static spell = async(params)=>{
+        let res = await pythonScripts.execute('spell', params);
 
         return res;
     }

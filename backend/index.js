@@ -30,23 +30,46 @@ const router = express.Router();
 
 const pythonScript = require('./config/python-scripts');
 const RespuestaModel = require('./models/respuesta')
+const OracionModel = require('./models/oracion')
 
 
 app.use('/api/mensaje', router.post('/post', async (req, res, next) => {
     try {
-        // console.log(req.body)
+        let oracion_corregida = await pythonScript.spell({ oracion: req.body.mensaje })
+        console.log(oracion_corregida)
         let intencion = await pythonScript.intencion({ oracion: req.body.mensaje })
         let subintencion = await pythonScript.subintencion({ oracion: req.body.mensaje })
         let carrera = await pythonScript.carrera({ oracion: req.body.mensaje })
+        let w5 = await pythonScript.w5({ oracion: req.body.mensaje })
         // console.log(intencion)
 
         let respuesta = await RespuestaModel.findOne({
             intencion: intencion.intencion,
             subintencion: subintencion.subintencion,
-            carrera: carrera.carrera
+            carrera: carrera.carrera,
+            w5: w5.w5
         })
 
-        res.status(200).json({intencion, subintencion, carrera, respuesta});
+        res.status(200).json({intencion, subintencion, carrera, respuesta, oracion: req.body.mensaje});
+    } catch (err) {
+        next(err);
+    }
+}));
+
+app.use('/api/mensaje', router.post('/feedback', async (req, res, next) => {
+    try {
+        let oracion = new OracionModel({
+            oracion: req.body.oracion,
+            intencion: req.body.intencion,
+            subintencion: req.body.subintencion,
+            carrera: req.body.carrera,
+            w5: req.body.w5,
+            feedback: true
+        })
+
+        oracion.save().then();
+
+        res.status(200).json();
     } catch (err) {
         next(err);
     }
