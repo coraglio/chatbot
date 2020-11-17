@@ -1,7 +1,7 @@
 import json
 import sys
 from clasificadores import *
-from spell2 import correction
+from spell2 import correct_sentence
 import nltk
 
 # silenciar mensajes de advertencia
@@ -27,14 +27,7 @@ def w5(params):
     return {'w5': 'todas', 'probabilidad': 1}
 
 def spell(params):
-    oracion = params['oracion'].lower()
-    palabras = nltk.word_tokenize(text=oracion, language="spanish")
-    oracion_corregida = ''
-
-    for p in palabras:
-        oracion_corregida += correction(p) + ' '
-
-    return oracion_corregida
+    return correct_sentence(params['oracion'])
 
 def main(argv):
     res = ""

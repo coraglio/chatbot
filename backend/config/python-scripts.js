@@ -29,7 +29,7 @@ class pythonScripts {
 
             setTimeout(function () {
                 reject("Timed out");
-            }, 30000);
+            }, 60000);
         });
 
         return promise;

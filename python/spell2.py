@@ -4,6 +4,7 @@ import re
 # import pandas as pd
 # import time
 import pymongo
+import nltk
 
 client = pymongo.MongoClient(
     "mongodb+srv://federico:uUmQB7B1sF5ytXg8@cluster0.ix9a2.mongodb.net/chatbot?retryWrites=true&w=majority")
@@ -88,5 +89,15 @@ def reduce_lengthening(text):
 
 def clean(text):
     return re.sub("[^"+letters+"]","", text)
+
+def correct_sentence(text):
+    text.lower()
+    palabras = nltk.word_tokenize(text=text, language="spanish")
+    oracion_corregida = ''
+
+    for p in palabras:
+        oracion_corregida += correction(p) + ' '
+
+    return oracion_corregida
 
 # print(correction('Holaaaa?'))
