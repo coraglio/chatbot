@@ -1,0 +1,17 @@
+<div *ngIf="mensaje" class="toast" aria-live="assertive" aria-atomic="true" data-autohide="false" [ngClass]="mensaje.bot? 'float-left' : 'float-right'">
+  <div class="toast-header">
+    <i class="fas fa-robot mx-2" *ngIf="mensaje.bot"></i>
+    <i class="fas fa-user mx-2" *ngIf="!mensaje.bot"></i>
+    <strong class="mr-auto">{{mensaje.bot? 'bot' : 'usted'}}</strong>
+    <!-- <small>11 mins ago</small> -->
+  </div>
+  <div class="toast-body">
+    {{mensaje.oracion}}
+  </div>
+  <button class="btn float-right" (click)="clickDown()" *ngIf="showButtons">
+    <i class="fas fa-thumbs-down text-danger"></i>
+  </button>
+  <button class="btn float-right" (click)="clickUp()" *ngIf="showButtons">
+    <i class="fas fa-thumbs-up text-success"></i>
+  </button>
+</div>

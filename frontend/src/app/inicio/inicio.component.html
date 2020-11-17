@@ -1,0 +1,18 @@
+<video class="bg-video" src="https://pixabay.com/es/videos/download/video-5172_large.mp4" loop muted autoplay></video>
+<div class="cont-main">
+    <div class="main">
+        <div #contMensajes class="cont-mensajes">
+            <div class="col my-4 cont-mensaje" *ngFor="let mensaje of lstMensajes">
+                <app-mensaje [mensaje]="mensaje" [load]="scrollToBottom()"></app-mensaje>
+            </div>
+        </div>
+        <div id="cont-input" class="input-group mb-3">
+            <input type="text" class="form-control" aria-describedby="btn-enviar" [(ngModel)]="mensaje" name="mensaje"
+                (keyup.enter)="enviar()" [disabled]="cargando" >
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="btn-enviar" (click)="enviar()"
+                    [disabled]="cargando || mensaje == ''">enviar</button>
+            </div>
+        </div>
+    </div>
+</div>

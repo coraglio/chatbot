@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Feedback</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label for="selIntencion">Intención</label>
+        <select name="selIntencion" [(ngModel)]="intencion" class="form-control" required>
+            <option value="charla">charla</option>
+            <option value="generalidades">generalidades</option>
+            <option value="pagos">pagos</option>
+            <option value="plan">plan</option>
+            <option value="trabajo">trabajo</option>
+            <option value="tramites">tramites</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="selSubintencion">Subintención</label>
+        <select name="selSubintencion" [(ngModel)]="subintencion" class="form-control" required>
+            <option value="cies">cies</option>
+            <option value="preinscripcion">preinscripcion</option>
+            <option value="requisitos">requisitos</option>
+            <option value="equivalencias">equivalencias</option>
+            <option value="precio">precio</option>
+            <option value="medios">medios</option>
+            <option value="todas">todas</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="selCarrera">Carrera</label>
+        <select name="selCarrera" [(ngModel)]="carrera" class="form-control" required>
+            <option value="3D">3D</option>
+            <option value="ADMIN">ADMIN</option>
+            <option value="Agro">Agro</option>
+            <option value="CI">CI</option>
+            <option value="DG">DG</option>
+            <option value="GCF">GCF</option>
+            <option value="HyS">HyS</option>
+            <option value="IA">IA</option>
+            <option value="INF">INF</option>
+            <option value="Log">Log</option>
+            <option value="MKT">MKT</option>
+            <option value="MM">MM</option>
+            <option value="Pub">Pub</option>
+            <option value="RRHH">RRHH</option>
+            <option value="RRPP">RRPP</option>
+            <option value="Rob">Rob</option>
+            <option value="Svirt">Svirt</option>
+            <option value="TUR">TUR</option>
+            <option value="todas">todas</option>
+        </select>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="guardar()">Guardar</button>
+    <button type="button" class="btn btn-danger" (click)="bsModalRef.hide()">Cerrar</button>
+</div>

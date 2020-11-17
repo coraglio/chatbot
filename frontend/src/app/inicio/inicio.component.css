@@ -1,0 +1,33 @@
+.bg-video {
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+}
+
+.cont-main{
+    position:fixed;
+    width: 100%;
+}
+
+.main {
+    width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.cont-mensajes {
+    height: 80vh;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: auto;
+    margin-top: 5vh;
+    background-color: #000000c4;
+}
+
+.cont-mensaje {
+    overflow: hidden;
+}
+
+#cont-input {
+    width: 100%;
+}
