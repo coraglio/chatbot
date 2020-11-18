@@ -67,17 +67,25 @@ app.use(
       });
       // console.log(intencion)
 
-      let respuesta = await RespuestaModel.findOne({
+      let res_clases = {
         intencion: intencion.intencion,
         subintencion: subintencion.subintencion,
         carrera: carrera.carrera,
         w5: w5.w5,
-      });
+      }
+
+      let respuesta = await RespuestaModel.findOne(res_clases);
+
+      if(!respuesta){
+        respuesta = res_clases;
+        respuesta.respuesta = "Disculpe, no puedo responder esa pregunta"
+      }
 
       res.status(200).json({
         intencion,
         subintencion,
         carrera,
+        w5,
         respuesta,
         oracion: req.body.mensaje,
       });

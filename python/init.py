@@ -29,7 +29,9 @@ def carrera(params):
 
 
 def w5(params):
-    return {'w5': 'todas', 'probabilidad': 1}
+    intencion, probabilidad = clasificador_w5(params['oracion'])
+    return {'w5': intencion, 'probabilidad': probabilidad}
+    # return {'w5': 'todas', 'probabilidad': 1}
 
 def spell(params):
     return correct_sentence(params['oracion'])
