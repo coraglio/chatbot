@@ -41,8 +41,14 @@ class pythonScripts {
         return res;
     }
 
-    static subintencion = async (params) => {
-        let res = await pythonScripts.execute('subintencion', params);
+    static subintencion_pagos = async (params) => {
+        let res = await pythonScripts.execute('subintencion_pagos', params);
+
+        return res;
+    }
+
+    static subintencion_tramites = async (params) => {
+        let res = await pythonScripts.execute('subintencion_tramites', params);
 
         return res;
     }

@@ -54,6 +54,18 @@
             <option value="todas">todas</option>
         </select>
     </div>
+    
+    <div class="form-group">
+        <label for="selW5">W5</label>
+        <select name="selW5" [(ngModel)]="w5" class="form-control" required>
+            <option value="como">como</option>
+            <option value="que">que</option>
+            <option value="cuando">cuando</option>
+            <option value="quien">quien</option>
+            <option value="donde">donde</option>
+            <option value="todas">todas</option>
+        </select>
+    </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-success" (click)="guardar()">Guardar</button>

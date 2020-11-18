@@ -13,8 +13,13 @@ def intencion(params):
     return {'intencion': intencion, 'probabilidad': probabilidad}
 
 
-def subintencion(params):
-    intencion, probabilidad = clasificador_subintenciones(params['oracion'])
+def subintencion_pagos(params):
+    intencion, probabilidad = clasificador_subintenciones_pagos(params['oracion'])
+    return {'subintencion': intencion, 'probabilidad': probabilidad}
+
+
+def subintencion_tramites(params):
+    intencion, probabilidad = clasificador_subintenciones_tramites(params['oracion'])
     return {'subintencion': intencion, 'probabilidad': probabilidad}
 
 
