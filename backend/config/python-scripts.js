@@ -1,13 +1,12 @@
 const spawn = require('child_process').spawn
 
 class pythonScripts {
-    static python_file = process.env.PYTHON_FILE ? process.env.PYTHON_FILE : '';
-    static python = process.env.PYTHON? process.env.PYTHON : 'python';
-
     static execute(metod, params) {
+        let python_file = process.env.PYTHON_FILE ? process.env.PYTHON_FILE : '';
+        let python = process.env.PYTHON? process.env.PYTHON : 'python';
         let promise = new Promise((resolve, reject) => {
-            let argsv = [pythonScripts.python_file, metod, JSON.stringify(params)];
-            let script = spawn(pythonScripts.python, argsv);
+            let argsv = [python_file, metod, JSON.stringify(params)];
+            let script = spawn(python, argsv);
 
             script.stdout.on('data', (data) => {
                 // console.log(data.toString())
