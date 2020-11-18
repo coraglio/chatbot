@@ -33,13 +33,13 @@ export class InicioComponent implements OnInit {
       })
 
       this.mensajesService.post(this.mensaje).subscribe((res: any) => {
-        let respuesta = `Intención: ${res.intencion.intencion} (${res.intencion.probabilidad})\n`
-        respuesta += `Subintención: ${res.subintencion.subintencion} (${res.subintencion.probabilidad})\n`
-        respuesta += `Carrera: ${res.carrera.carrera} (${res.carrera.probabilidad})\n`
+        // let respuesta = `Intención: ${res.intencion.intencion} (${res.intencion.probabilidad})\n`
+        // respuesta += `Subintención: ${res.subintencion.subintencion} (${res.subintencion.probabilidad})\n`
+        // respuesta += `Carrera: ${res.carrera.carrera} (${res.carrera.probabilidad})\n`
 
         this.lstMensajes.push({
-          oracion: respuesta,
-          respuesta: res,
+          oracion: res.respuesta.respuesta,
+          respuesta: res.respuesta,
           bot: true
         })
 

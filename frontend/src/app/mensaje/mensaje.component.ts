@@ -46,11 +46,8 @@ export class MensajeComponent implements OnInit, OnChanges {
       ignoreBackdropClick: true,
       keyboard: false
     });
-    this.bsModalRef.content.oracion = this.mensaje.oracion
-    this.bsModalRef.content.intecion = this.mensaje.intecion.intencion
-    this.bsModalRef.content.subintecion = this.mensaje.subintecion.subintecion
-    this.bsModalRef.content.carrera = this.mensaje.carrera.carrera
-    this.bsModalRef.content.w5 = this.mensaje.w5.w5
+
+    this.bsModalRef.content.init(this.mensaje.respuesta)
 
   }
 

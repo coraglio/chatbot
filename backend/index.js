@@ -46,7 +46,7 @@ app.use(
         oracion: oracion_corregida,
       });
 
-      let subintencion = "todas";
+      let subintencion = { subintencion: "todas", probabilidad: 1 };
 
       if (intencion.intencion == "pagos")
         subintencion = await pythonScript.subintencion_pagos({
