@@ -72,13 +72,13 @@ app.use(
         subintencion: subintencion.subintencion,
         carrera: carrera.carrera,
         w5: w5.w5,
-      }
+      };
 
       let respuesta = await RespuestaModel.findOne(res_clases);
 
-      if(!respuesta){
+      if (!respuesta) {
         respuesta = res_clases;
-        respuesta.respuesta = "Disculpe, no puedo responder esa pregunta"
+        respuesta.respuesta = "Disculpe, no puedo responder esa pregunta";
       }
 
       res.status(200).json({
