@@ -60,6 +60,11 @@ app.use(
         });
 
       let carrera = await pythonScript.carrera({ oracion: req.body.mensaje });
+      if (carrera.probabilidad < 0.3) {
+        carrera.carrera = "todas";
+      }
+
+      
       //   let carrera = 'todas'
       let w5 = await pythonScript.w5({
         // oracion: req.body.mensaje,
@@ -75,6 +80,36 @@ app.use(
       };
 
       let respuesta = await RespuestaModel.findOne(res_clases);
+
+      if (!respuesta) {
+        res_clases2 = {
+          intencion: intencion.intencion,
+          subintencion: subintencion.subintencion,
+          carrera: "todas",
+          w5: w5.w5,
+        };
+        respuesta = await RespuestaModel.findOne(res_clases2);
+      }
+
+      if (!respuesta) {
+        res_clases2 = {
+          intencion: intencion.intencion,
+          subintencion: subintencion.subintencion,
+          carrera: carrera.carrera,
+          w5: "todas",
+        };
+        respuesta = await RespuestaModel.findOne(res_clases2);
+      }
+
+      if (!respuesta) {
+        res_clases2 = {
+          intencion: intencion.intencion,
+          subintencion: subintencion.subintencion,
+          carrera: "todas",
+          w5: "todas",
+        };
+        respuesta = await RespuestaModel.findOne(res_clases2);
+      }
 
       if (!respuesta) {
         respuesta = res_clases;

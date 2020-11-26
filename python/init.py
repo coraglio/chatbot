@@ -2,7 +2,6 @@ import json
 import sys
 from clasificadores import *
 from spell2 import correct_sentence
-import nltk
 
 # silenciar mensajes de advertencia
 import warnings
